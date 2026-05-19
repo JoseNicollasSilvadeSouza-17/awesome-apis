@@ -1,0 +1,1 @@
+export type TagExoplanet = "Gas Giant" | "Neptunian" | "Super-Earth" | "Terrestrial" ;
