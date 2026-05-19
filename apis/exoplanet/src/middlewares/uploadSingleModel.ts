@@ -1,3 +1,3 @@
-import multerConfig from "../utils/multer.js";
+import { multerModelConfig } from "../utils/multer.js";
 
-export const uploadSingleModel = multerConfig.single("exoplanet");
+export const uploadSingleModel = multerModelConfig.single("exoplanet");

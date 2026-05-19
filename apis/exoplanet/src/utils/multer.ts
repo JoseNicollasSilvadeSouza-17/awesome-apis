@@ -18,24 +18,41 @@ const allowedModelMimeType = [
   "application/json"
 ];
 
-const allowedMimeType = [...allowedImageMimeType, ...allowedModelMimeType];
+function fileFilterImage(req: Request, file: Express.Multer.File, callback: FileFilterCallback) {
+  const isAllowed = allowedImageMimeType.includes(file.mimetype);
 
-function fileFilter(req: Request, file: Express.Multer.File, callback: FileFilterCallback) {
-  const fileExtension = path.extname(file.originalname).toLocaleLowerCase();
-
-  const isAllowed = allowedMimeType.includes(file.mimetype) || fileExtension === ".glb" || ".gltf";
-
-  if (!isAllowed) return callback(new Error("Invalid file type!"));
+  if (!isAllowed) return callback(new Error("Invalid image type!"));
 
   callback(null, true);
 }
 
-const multerConfig = multer({
+function fileFilterModel(req: Request, file: Express.Multer.File, callback: FileFilterCallback) {
+  const fileExtension = path.extname(file.originalname).toLocaleLowerCase();
+
+  const isAllowed = allowedModelMimeType.includes(file.mimetype) || fileExtension === ".glb" || ".gltf";
+
+  if (!isAllowed) return callback(new Error("Invalid model type!"));
+
+  callback(null, true);
+}
+
+const multerImageConfig = multer({
   storage,
-  fileFilter,
+  fileFilter: fileFilterImage,
+  limits: {
+    fileSize: 5 * 1024 * 1024
+  }
+});
+
+const multerModelConfig = multer({
+  storage,
+  fileFilter: fileFilterModel,
   limits: {
     fileSize: 50 * 1024 * 1024
   }
 });
 
-export default multerConfig;
+export {
+  multerImageConfig,
+  multerModelConfig
+};
