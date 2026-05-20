@@ -2,6 +2,7 @@ import { Router } from "express";
 import ExoplanetControllers from "../controllers/exoplanet.controllers.js";
 import { uploadSingleModel } from "../middlewares/uploadSingleModel.js";
 import { uploadSingleImage } from "../middlewares/uploadSingleImage.js";
+import validityNsfw from "../middlewares/validityNsfw.js";
 
 const router = Router();
 const exoplanetControllers = new ExoplanetControllers();
@@ -14,7 +15,7 @@ router.get("/:id", exoplanetControllers.getExoplanet);
 
 router.post("/", exoplanetControllers.postExoplanet);
 
-router.post("/:id/image", uploadSingleImage, exoplanetControllers.postUploadImage);
+router.post("/:id/image", uploadSingleImage, validityNsfw, exoplanetControllers.postUploadImage);
 
 router.post("/:id/model", uploadSingleModel, exoplanetControllers.postUploadModel);
 
