@@ -1,0 +1,33 @@
+{
+  "name": "geo-hollow-knight",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "npx tsx --watch src/server.ts"
+  },
+  "keywords": [
+    "API",
+    "Geo",
+    "Hollow Knight"
+  ],
+  "author": {
+    "name": "José Nícollas Silva de Souza",
+    "email": "josenicollassilvadesouza@gmail.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.66.0",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1",
+    "prom-client": "^15.1.3"
+  }
+}
