@@ -1,9 +1,10 @@
 import type { Request, Response } from "express";
 import Geo from "../models/Geo.class.js";
+import z from "zod";
 
 export default class GeoControllers {
   converterGeo(req: Request, res: Response) {
-    const amount = Number(req.query.amount);
+    const amount = z.number().parse(req.query.amount);
 
     if (isNaN(amount) || amount <= 0) return res.sendStatus(400);
 
@@ -12,7 +13,7 @@ export default class GeoControllers {
   }
 
   converterBrl(req: Request, res: Response) {
-    const value = Number(req.query.value);
+    const value = z.number().parse(req.query.value);
 
     if (isNaN(value) || value <= 0) return res.sendStatus(400);
 
@@ -21,7 +22,7 @@ export default class GeoControllers {
   }
 
   converterUsd(req: Request, res: Response) {
-    const value = Number(req.query.value);
+    const value = z.number().parse(req.query.value);
 
     if (isNaN(value) || value <= 0) return res.sendStatus(400);
 

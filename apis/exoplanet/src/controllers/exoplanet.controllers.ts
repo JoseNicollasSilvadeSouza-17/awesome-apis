@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import ExoplanetRepository from "../repositories/exoplanet.repositories.js";
+import z from "zod";
 
 const exoplanetRepository = new ExoplanetRepository();
 
@@ -13,7 +14,7 @@ export default class ExoplanetControllers {
   }
 
   async getExoplanet(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = z.number().parse(req.params.id);
     const exoplanet = await exoplanetRepository.getExoplanet(id);
 
     if (!exoplanet) return res.sendStatus(404);
@@ -39,7 +40,7 @@ export default class ExoplanetControllers {
   }
 
   async postUploadImage(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = z.number().parse(req.params.id);
     const file = req.file;
 
     if (!file) return res.sendStatus(400);
@@ -50,7 +51,7 @@ export default class ExoplanetControllers {
   }
 
   async postUploadModel(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = z.number().parse(req.params.id);
     const file = req.file;
 
     if (!file) return res.sendStatus(400);
@@ -61,7 +62,7 @@ export default class ExoplanetControllers {
   }
 
   async putExoplanet(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = z.number().parse(req.params.id);
     const exoplanet = req.body;
     const result = await exoplanetRepository.replaceExoplanet(id, exoplanet);
 
@@ -71,7 +72,7 @@ export default class ExoplanetControllers {
   }
 
   async patchExoplanet(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = z.number().parse(req.params.id);
     const exoplanet = req.body;
     const result = await exoplanetRepository.updateExoplanet(id, exoplanet);
 
@@ -81,7 +82,7 @@ export default class ExoplanetControllers {
   }
 
   async deleteExoplanet(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = z.number().parse(req.params.id);
     const result = await exoplanetRepository.deleteExoplanet(id);
 
     if (!result) return res.sendStatus(404);
