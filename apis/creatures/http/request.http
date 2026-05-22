@@ -1,0 +1,36 @@
+### Healthcheck
+GET http://localhost:3000/health/
+
+### Version
+GET http://localhost:3000/version/
+
+### Prometheus Metrics
+GET http://localhost:3000/metrics/
+
+### Search for all creatures
+GET http://localhost:3000/api/v1/creatures/
+
+### Search count creatures
+GET http://localhost:3000/api/v1/creatures/count/
+
+### Search for creature 1
+GET http://localhost:3000/api/v1/creatures/6a0f806a4b14ccc07d5c4d99/
+
+### Search for creature 2
+GET http://localhost:3000/api/v1/creatures/6a0f8a98ffb7a9c25a6937f5/
+
+### Search for creature 3
+GET http://localhost:3000/api/v1/creatures/6a10b56e1f7343c184bf279a/
+
+### Create a new exoplanet
+POST http://localhost:3000/api/v1/creatures/
+Content-Type: application/json
+
+{
+  "name": "Homens do Pilar (Pillar Men)",
+  "scientificName": "Homo inhumanus",
+  "description": "Criaturas do Jojo's Bizarre Adventure Parte 2: Battle Tendency. São uma antiga espécie super-humanos com habilidades incríveis e eram o topo da cadeia alimentar. Entretanto, não conseguem suporta a luz do sol ou o Hamon.",
+  "habitat": "Planeta Terra",
+  "category": "Super-Primata",
+  "author": "Hirohiko Araki"
+}

@@ -1,0 +1,47 @@
+### Healthcheck
+GET http://localhost:3000/health/
+
+### Version
+GET http://localhost:3000/version/
+
+### Prometheus Metrics
+GET http://localhost:3000/metrics/
+
+### Search for amount GEO 1
+GET http://localhost:3000/api/v1/geos/geo?amount=1
+
+### Search for amount GEO 2
+GET http://localhost:3000/api/v1/geos/geo?amount=2
+
+### Search for amount GEO 3
+GET http://localhost:3000/api/v1/geos/geo?amount=3
+
+### Search for amount GEO 4
+GET http://localhost:3000/api/v1/geos/geo?amount=4
+
+### Search for amount GEO 5
+GET http://localhost:3000/api/v1/geos/geo?amount=5
+
+### Search for amount GEO 6
+GET http://localhost:3000/api/v1/geos/geo?amount=6
+
+### Search for amount GEO 7
+GET http://localhost:3000/api/v1/geos/geo?amount=7
+
+### Search for amount GEO 8
+GET http://localhost:3000/api/v1/geos/geo?amount=8
+
+### Search for amount GEO 9
+GET http://localhost:3000/api/v1/geos/geo?amount=9
+
+### Search for amount GEO 10
+GET http://localhost:3000/api/v1/geos/geo?amount=10
+
+### Search for amount GEO 100
+GET http://localhost:3000/api/v1/geos/geo?amount=100
+
+### Search for amount GEO 10.000
+GET http://localhost:3000/api/v1/geos/geo?amount=10000
+
+### Search for amount GEO 100.000.000.000
+GET http://localhost:3000/api/v1/geos/geo?amount=100000000000
