@@ -1,0 +1,39 @@
+### Healthcheck
+GET http://localhost:3000/health/
+
+### Version
+GET http://localhost:3000/version/
+
+### Prometheus Metrics
+GET http://localhost:3000/metrics/
+
+### Search for all exoplanets
+GET http://localhost:3000/api/v1/exoplanets/
+
+### Search count exoplanet
+GET http://localhost:3000/api/v1/exoplanets/count/
+
+### Search for exoplanet 1
+GET http://localhost:3000/api/v1/exoplanets/1/
+
+### Search for exoplanet 2
+GET http://localhost:3000/api/v1/exoplanets/2/
+
+### Search for exoplanet 3
+GET http://localhost:3000/api/v1/exoplanets/3/
+
+### Search for exoplanet 4
+GET http://localhost:3000/api/v1/exoplanets/4/
+
+### Search for exoplanet 5
+GET http://localhost:3000/api/v1/exoplanets/5/
+
+### Create a new exoplanet
+POST http://localhost:3000/api/v1/exoplanets/
+Content-Type: application/json
+
+{
+  "name": "Vulcano",
+  "description": "É um planeta hipotético do Sistema Solar",
+  "tag": "Terrestrial"
+}

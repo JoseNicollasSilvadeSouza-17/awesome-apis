@@ -4,7 +4,7 @@ import z from "zod";
 
 export default class GeoControllers {
   converterGeo(req: Request, res: Response) {
-    const amount = z.number().parse(req.query.amount);
+    const amount = z.unknown().transform(Number).parse(req.query.amount);
 
     if (isNaN(amount) || amount <= 0) return res.sendStatus(400);
 
@@ -13,7 +13,7 @@ export default class GeoControllers {
   }
 
   converterBrl(req: Request, res: Response) {
-    const value = z.number().parse(req.query.value);
+    const value = z.unknown().transform(Number).parse(req.query.value);
 
     if (isNaN(value) || value <= 0) return res.sendStatus(400);
 
@@ -22,7 +22,7 @@ export default class GeoControllers {
   }
 
   converterUsd(req: Request, res: Response) {
-    const value = z.number().parse(req.query.value);
+    const value = z.unknown().transform(Number).parse(req.query.value);
 
     if (isNaN(value) || value <= 0) return res.sendStatus(400);
 
