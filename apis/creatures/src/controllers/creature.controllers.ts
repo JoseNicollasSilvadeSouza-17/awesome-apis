@@ -11,7 +11,7 @@ export default class CreatureControllers {
   }
 
   async getCreature(req: Request, res: Response) {
-    const id = z.string().parse(req.params.id);
+    const id = z.unknown().transform(String).parse(req.params.id);
     const creature = await creatureRepositories.getCreature(id);
     return res.json(creature);
   }
@@ -34,7 +34,7 @@ export default class CreatureControllers {
   }
 
   async putCreature(req: Request, res: Response) {
-    const id = z.string().parse(req.params.id);
+    const id = z.unknown().transform(String).parse(req.params.id);
     const creature = req.body;
     const result = await creatureRepositories.replaceCreature(id, creature);
 
@@ -44,7 +44,7 @@ export default class CreatureControllers {
   }
 
   async patchCreature(req: Request, res: Response) {
-    const id = z.string().parse(req.params.id);
+    const id = z.unknown().transform(String).parse(req.params.id);
     const creature = req.body;
     const result = await creatureRepositories.updateCreature(id, creature);
 
@@ -54,7 +54,7 @@ export default class CreatureControllers {
   }
 
   async deleteCreature(req: Request, res: Response) {
-    const id = z.string().parse(req.params.id);
+    const id = z.unknown().transform(String).parse(req.params.id);
     const result = await creatureRepositories.deleteCreature(id);
 
     if (!result) return res.sendStatus(404);
