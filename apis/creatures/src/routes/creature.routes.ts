@@ -5,11 +5,15 @@ const creatureControllers = new CreatureControllers();
 
 const router = Router();
 
-router.get("/", creatureControllers.getAll);
+router.get("/", creatureControllers.getCreatures);
+
+router.get("/download", creatureControllers.getCreaturesDownload);
 
 router.get("/count", creatureControllers.getCreatureCount);
 
 router.get("/:id", creatureControllers.getCreature);
+
+router.get("/:id/download", creatureControllers.getCreatureDownload);
 
 router.post("/", creatureControllers.postCreature);
 

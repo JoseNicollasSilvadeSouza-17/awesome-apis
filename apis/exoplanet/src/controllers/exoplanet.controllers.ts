@@ -5,12 +5,28 @@ import z from "zod";
 const exoplanetRepository = new ExoplanetRepository();
 
 export default class ExoplanetControllers {
-  async getAll(req: Request, res: Response) {
+  async getExoplanets(req: Request, res: Response) {
     const exoplanets = await exoplanetRepository.getExoplanets();
 
     if (!exoplanets) return res.sendStatus(404);
 
     return res.json(exoplanets);
+  }
+
+  async getExoplanetsDownload(req: Request, res: Response) {
+    const exoplanets = await exoplanetRepository.getExoplanets();
+
+    if (!exoplanets) return res.sendStatus(404);
+
+    const jsonString = JSON.stringify(exoplanets, null, 2);
+
+    res.setHeader(
+      "Content-Disposition",
+      "attachment; filename=exoplanets.json",
+    );
+    res.setHeader("Content-Type", "application/json");
+
+    return res.json(jsonString);
   }
 
   async getExoplanet(req: Request, res: Response) {
@@ -28,6 +44,23 @@ export default class ExoplanetControllers {
     if (!count) return res.sendStatus(404);
 
     return res.json({ count });
+  }
+
+  async getExoplanetDownload(req: Request, res: Response) {
+    const id = z.unknown().transform(Number).parse(req.params.id);
+    const exoplanet = await exoplanetRepository.getExoplanet(id);
+
+    if (!exoplanet) return res.sendStatus(404);
+
+    const jsonString = JSON.stringify(exoplanet, null, 2);
+
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename=exoplanet_${id}.json`,
+    );
+    res.setHeader("Content-Type", "application/json");
+
+    return res.json(jsonString);
   }
 
   async postExoplanet(req: Request, res: Response) {
