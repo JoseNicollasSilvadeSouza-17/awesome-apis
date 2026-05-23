@@ -7,11 +7,15 @@ import validityNsfw from "../middlewares/validityNsfw.js";
 const router = Router();
 const exoplanetControllers = new ExoplanetControllers();
 
-router.get("/", exoplanetControllers.getAll);
+router.get("/", exoplanetControllers.getExoplanets);
+
+router.get("/download", exoplanetControllers.getExoplanetsDownload);
 
 router.get("/count", exoplanetControllers.getExoplanetCount);
 
 router.get("/:id", exoplanetControllers.getExoplanet);
+
+router.get("/:id/download", exoplanetControllers.getExoplanetDownload);
 
 router.post("/", exoplanetControllers.postExoplanet);
 

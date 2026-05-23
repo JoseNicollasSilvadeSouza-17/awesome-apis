@@ -5,9 +5,22 @@ import z from "zod";
 const creatureRepositories = new CreatureRepositories();
 
 export default class CreatureControllers {
-  async getAll(req: Request, res: Response) {
+  async getCreatures(req: Request, res: Response) {
     const creatures = await creatureRepositories.getCreatures();
     return res.json(creatures);
+  }
+
+  async getCreaturesDownload(req: Request, res: Response) {
+    const creatures = await creatureRepositories.getCreatures();
+
+    if (!creatures) return res.sendStatus(404);
+
+    const jsonString = JSON.stringify(creatures, null, 2);
+
+    res.setHeader("Content-Disposition", "attachment; filename=creatures.json");
+    res.setHeader("Content-Type", "application/json");
+
+    return res.json(jsonString);
   }
 
   async getCreature(req: Request, res: Response) {
@@ -22,6 +35,23 @@ export default class CreatureControllers {
     if (!result) return res.sendStatus(404);
 
     return res.status(200).json({ count: result });
+  }
+
+  async getCreatureDownload(req: Request, res: Response) {
+    const id = z.unknown().transform(String).parse(req.params.id);
+    const creature = await creatureRepositories.getCreature(id);
+
+    if (!creature) return res.sendStatus(404);
+
+    const jsonString = JSON.stringify(creature, null, 2);
+
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename=creature_${id}.json`,
+    );
+    res.setHeader("Content-Type", "application/json");
+
+    return res.json(jsonString);
   }
 
   async postCreature(req: Request, res: Response) {
