@@ -1,0 +1,37 @@
+{
+  "name": "blockchain-jnss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "npx tsx --watch src/server.ts"
+  },
+  "keywords": [
+    "Blockchain",
+    "JNSS",
+    "API"
+  ],
+  "author": {
+    "name": "José Nícollas Silva de Souza",
+    "email": "josenicollassilvadesouza@gmail.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.67.0",
+    "crypto-js": "^4.2.0",
+    "express": "^5.2.1",
+    "helmet": "^8.2.0",
+    "morgan": "^1.10.1",
+    "prom-client": "^15.1.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.9.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}
