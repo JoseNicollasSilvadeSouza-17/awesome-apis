@@ -9,13 +9,17 @@ const exoplanetControllers = new ExoplanetControllers();
 
 router.get("/", exoplanetControllers.getExoplanets);
 
-router.get("/download", exoplanetControllers.getExoplanetsDownload);
+router.get("/download/json", exoplanetControllers.getExoplanetsDownloadJson);
+
+router.get("/download/pdf", exoplanetControllers.getExoplanetsDownloadPdf);
 
 router.get("/count", exoplanetControllers.getExoplanetCount);
 
 router.get("/:id", exoplanetControllers.getExoplanet);
 
-router.get("/:id/download", exoplanetControllers.getExoplanetDownload);
+router.get("/:id/download/json", exoplanetControllers.getExoplanetDownloadJson);
+
+router.get("/:id/download/pdf", exoplanetControllers.getExoplanetDownloadPdf);
 
 router.post("/", exoplanetControllers.postExoplanet);
 

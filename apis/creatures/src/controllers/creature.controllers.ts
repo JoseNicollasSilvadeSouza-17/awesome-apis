@@ -20,7 +20,7 @@ export default class CreatureControllers {
     res.setHeader("Content-Disposition", "attachment; filename=creatures.json");
     res.setHeader("Content-Type", "application/json");
 
-    return res.json(jsonString);
+    return res.send(jsonString);
   }
 
   async getCreature(req: Request, res: Response) {
@@ -51,7 +51,7 @@ export default class CreatureControllers {
     );
     res.setHeader("Content-Type", "application/json");
 
-    return res.json(jsonString);
+    return res.send(jsonString);
   }
 
   async postCreature(req: Request, res: Response) {

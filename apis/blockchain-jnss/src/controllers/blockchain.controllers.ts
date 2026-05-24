@@ -26,7 +26,7 @@ export default class BlockchainControllers {
     );
     res.setHeader("Content-Type", "application/json");
 
-    return res.json(jsonString);
+    return res.send(jsonString);
   }
 
   postMine(req: Request, res: Response) {

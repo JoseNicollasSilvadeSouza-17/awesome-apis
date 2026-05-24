@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import ExoplanetRepository from "../repositories/exoplanet.repositories.js";
 import z from "zod";
+import { createPdfMultiple, createPdfSingle } from "../utils/pdf.js";
 
 const exoplanetRepository = new ExoplanetRepository();
 
@@ -13,7 +14,7 @@ export default class ExoplanetControllers {
     return res.json(exoplanets);
   }
 
-  async getExoplanetsDownload(req: Request, res: Response) {
+  async getExoplanetsDownloadJson(req: Request, res: Response) {
     const exoplanets = await exoplanetRepository.getExoplanets();
 
     if (!exoplanets) return res.sendStatus(404);
@@ -26,7 +27,24 @@ export default class ExoplanetControllers {
     );
     res.setHeader("Content-Type", "application/json");
 
-    return res.json(jsonString);
+    return res.send(jsonString);
+  }
+
+  async getExoplanetsDownloadPdf(req: Request, res: Response) {
+    const exoplanets = await exoplanetRepository.getExoplanets();
+
+    if (!exoplanets) return res.sendStatus(404);
+
+    const pdf = await createPdfMultiple(exoplanets);
+    
+    res.setHeader(
+      "Content-Disposition",
+      "attachment; filename=exoplanets.pdf",
+    );
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Length", pdf.length);
+    
+    return res.send(Buffer.from(pdf));
   }
 
   async getExoplanet(req: Request, res: Response) {
@@ -46,7 +64,7 @@ export default class ExoplanetControllers {
     return res.json({ count });
   }
 
-  async getExoplanetDownload(req: Request, res: Response) {
+  async getExoplanetDownloadJson(req: Request, res: Response) {
     const id = z.unknown().transform(Number).parse(req.params.id);
     const exoplanet = await exoplanetRepository.getExoplanet(id);
 
@@ -60,7 +78,25 @@ export default class ExoplanetControllers {
     );
     res.setHeader("Content-Type", "application/json");
 
-    return res.json(jsonString);
+    return res.send(jsonString);
+  }
+
+  async getExoplanetDownloadPdf(req: Request, res: Response) {
+    const id = z.unknown().transform(Number).parse(req.params.id);
+    const exoplanet = await exoplanetRepository.getExoplanet(id);
+
+    if (!exoplanet) return res.sendStatus(404);
+
+    const pdf = await createPdfSingle(exoplanet);
+    
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename=exoplanet_${id}.pdf`,
+    );
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Length", pdf.length);
+    
+    return res.send(Buffer.from(pdf));
   }
 
   async postExoplanet(req: Request, res: Response) {
