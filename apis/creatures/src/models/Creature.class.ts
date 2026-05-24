@@ -27,7 +27,7 @@ export default class Creature {
     this.id = id;
     this.name = name;
     this.scientificName = scientificName;
-    this.description =description;
+    this.description = description;
     this.habitat = habitat;
     this.category = category;
     this.author = author;

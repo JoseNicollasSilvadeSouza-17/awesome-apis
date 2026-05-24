@@ -15,7 +15,7 @@ export default class ExoplanetRepository {
     return data.map((exoplanetData) => new Exoplanet(exoplanetData));
   }
 
-  async getExoplanet(id: number): Promise<IExoplanet> {
+  async getExoplanet(id: number): Promise<Exoplanet> {
     const { data, error } = await supabase
       .from("Exoplanet")
       .select("*")
@@ -24,7 +24,7 @@ export default class ExoplanetRepository {
 
     if (error) throw error;
 
-    return data;
+    return new Exoplanet(data);
   }
 
   async getExoplanetCount(): Promise<number> {

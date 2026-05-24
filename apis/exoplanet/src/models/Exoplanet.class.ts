@@ -17,4 +17,16 @@ export default class Exoplanet {
     this.imgUrl = imgUrl;
     this.modelUrl = modelUrl;
   }
+
+  public get _name(): string {
+    return this.name;
+  }
+
+  public get _description(): string {
+    return this.description;
+  }
+
+  public get _tag(): string {
+    return this.tag;
+  }
 }
