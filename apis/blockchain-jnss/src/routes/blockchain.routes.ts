@@ -1,5 +1,6 @@
 import { Router } from "express";
-import BlockchainControllers from "../controllers/blockchain.controllers.js";
+import BlockchainControllers from "../controllers/blockchain.controller.js";
+import optionsBlockchain from "../controllers/options.controller.js";
 
 const blockchainControllers = new BlockchainControllers();
 
@@ -10,5 +11,7 @@ router.get("/", blockchainControllers.getBlockchains);
 router.get("/download", blockchainControllers.getBlockchainsDownload);
 
 router.post("/", blockchainControllers.postMine);
+
+router.options("/", optionsBlockchain);
 
 export default router;

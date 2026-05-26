@@ -37,3 +37,6 @@ Content-Type: application/json
   "description": "É um planeta hipotético do Sistema Solar",
   "tag": "Terrestrial"
 }
+
+### Discover the API request options
+OPTIONS http://localhost:3000/api/v1/exoplanets/

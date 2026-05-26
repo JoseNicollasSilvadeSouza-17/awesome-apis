@@ -10,22 +10,22 @@ export default class Geo {
   static converterGeoToOther(amount: number) {
     return {
       GEO: amount,
-      CONVERTER_TO_USD: `US$ ${this.format(amount * this.GEO_TO_USD)}`,
-      CONVERTER_TO_BRL: `R$ ${this.format(amount * this.GEO_TO_BRL)}`,
+      CONVERTER_TO_USD: this.format(amount * this.GEO_TO_USD),
+      CONVERTER_TO_BRL: this.format(amount * this.GEO_TO_BRL),
     };
   }
 
   static converterBrlToGeo(value: number) {
     return {
       BRL: value,
-      CONVERTER_TO_GEO: `GEO ${this.format(value / this.GEO_TO_BRL)}`,
+      CONVERTER_TO_GEO: this.format(value / this.GEO_TO_BRL),
     };
   }
 
   static converterUsdToGeo(value: number) {
     return {
       USD: value,
-      CONVERTER_TO_USD: `GEO this.format(value / this.GEO_TO_USD)`,
+      CONVERTER_TO_USD: this.format(value / this.GEO_TO_USD),
     };
   }
 }

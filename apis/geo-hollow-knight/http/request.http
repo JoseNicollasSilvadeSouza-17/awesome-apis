@@ -45,3 +45,6 @@ GET http://localhost:3000/api/v1/geos/geo?amount=10000
 
 ### Search for amount GEO 100.000.000.000
 GET http://localhost:3000/api/v1/geos/geo?amount=100000000000
+
+### Discover the API request options
+OPTIONS http://localhost:3000/api/v1/geos/
