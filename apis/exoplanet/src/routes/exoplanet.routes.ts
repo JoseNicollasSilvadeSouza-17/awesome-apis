@@ -1,8 +1,9 @@
 import { Router } from "express";
-import ExoplanetControllers from "../controllers/exoplanet.controllers.js";
+import ExoplanetControllers from "../controllers/exoplanet.controller.js";
 import { uploadSingleModel } from "../middlewares/uploadSingleModel.js";
 import { uploadSingleImage } from "../middlewares/uploadSingleImage.js";
 import validityNsfw from "../middlewares/validityNsfw.js";
+import optionsExoplanet from "../controllers/options.controller.js";
 
 const router = Router();
 const exoplanetControllers = new ExoplanetControllers();
@@ -32,5 +33,7 @@ router.put("/:id", exoplanetControllers.putExoplanet);
 router.patch("/:id", exoplanetControllers.patchExoplanet);
 
 router.delete("/:id", exoplanetControllers.deleteExoplanet);
+
+router.options("/", optionsExoplanet);
 
 export default router;

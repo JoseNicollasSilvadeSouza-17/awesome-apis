@@ -1,5 +1,6 @@
 import { Router } from "express";
-import CreatureControllers from "../controllers/creature.controllers.js";
+import CreatureControllers from "../controllers/creature.controller.js";
+import optionsCreature from "../controllers/options.controller.js";
 
 const creatureControllers = new CreatureControllers();
 
@@ -22,5 +23,7 @@ router.put("/:id", creatureControllers.putCreature);
 router.patch("/:id", creatureControllers.patchCreature);
 
 router.delete("/:id", creatureControllers.deleteCreature);
+
+router.options("/", optionsCreature);
 
 export default router;

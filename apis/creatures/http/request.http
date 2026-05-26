@@ -34,3 +34,6 @@ Content-Type: application/json
   "category": "Super-Primata",
   "author": "Hirohiko Araki"
 }
+
+### Discover the API request options
+OPTIONS http://localhost:3000/api/v1/creatures/
