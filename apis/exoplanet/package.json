@@ -1,7 +1,7 @@
 {
   "name": "exoplanet",
   "version": "1.0.0",
-  "description": "",
+  "description": "Exoplanet Management API",
   "main": "src/server.ts",
   "scripts": {
     "dev": "npx tsx --watch src/server.ts"

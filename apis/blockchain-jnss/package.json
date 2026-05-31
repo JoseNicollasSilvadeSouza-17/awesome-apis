@@ -1,7 +1,7 @@
 {
   "name": "blockchain-jnss",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for managing functions of a Blockchain built from scratch.",
   "main": "src/server.ts",
   "scripts": {
     "dev": "npx tsx --watch src/server.ts"

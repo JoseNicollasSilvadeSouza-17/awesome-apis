@@ -20,6 +20,16 @@ app.use(express.json());
 
 app.use("/api/v1/geos", router);
 
+app.get("/", (req: Request, res: Response) => {
+  const responseData = {
+    message: "Welcome to the Geo Hollow Knight Converter API!",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  };
+
+  return res.status(200).json(responseData);
+});
+
 app.get("/health", (req: Request, res: Response) => {
   res.status(200);
 });
