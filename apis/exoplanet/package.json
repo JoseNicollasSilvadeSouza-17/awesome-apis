@@ -7,8 +7,9 @@
     "dev": "npx tsx --watch src/server.ts"
   },
   "keywords": [
-    "api",
-    "awesome"
+    "API",
+    "Exoplanet",
+    "Planet"
   ],
   "author": {
     "name": "José Nícollas Silva de Souza",
