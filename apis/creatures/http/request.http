@@ -1,3 +1,6 @@
+### Welcome
+GET http://localhost:3000/
+
 ### Healthcheck
 GET http://localhost:3000/health/
 

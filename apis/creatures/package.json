@@ -1,8 +1,8 @@
 {
   "name": "creatures",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.ts",
+  "description": "API for managing 'non-existent' creatures.",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "npx tsx --watch src/server.ts"
   },

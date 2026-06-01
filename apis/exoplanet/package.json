@@ -1,7 +1,7 @@
 {
   "name": "exoplanet",
   "version": "1.0.0",
-  "description": "",
+  "description": "Exoplanet Management API",
   "main": "src/server.ts",
   "scripts": {
     "dev": "npx tsx --watch src/server.ts"
@@ -29,6 +29,7 @@
     "pdf-lib": "^1.17.1",
     "prom-client": "^15.1.3",
     "sharp": "^0.34.5",
+    "swagger-ui-express": "^5.0.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -36,6 +37,7 @@
     "@types/morgan": "^1.9.10",
     "@types/multer": "^2.1.0",
     "@types/node": "^25.9.0",
+    "@types/swagger-ui-express": "^4.1.8",
     "tsx": "^4.22.3",
     "typescript": "^6.0.3"
   }

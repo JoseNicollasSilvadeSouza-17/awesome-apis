@@ -1,4 +1,4 @@
-# Awesome APIs
+# Awesome APIs ⠁⠺⠑⠎⠕⠍⠑ ⠁⠏⠊⠎
 
 [🇺🇸 English](../README.md) | [🇪🇸 Español](./README.es.md) | 🇧🇷 Português (Brasil) | [🇵🇹 Português (Portugal)](./README.pt-PT.md)
 

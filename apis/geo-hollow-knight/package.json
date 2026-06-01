@@ -1,8 +1,8 @@
 {
   "name": "geo-hollow-knight",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.ts",
+  "description": "API for converting the in-game currency Geo from Hollow Knight to real-world USD and BRL.",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "npx tsx --watch src/server.ts"
   },
