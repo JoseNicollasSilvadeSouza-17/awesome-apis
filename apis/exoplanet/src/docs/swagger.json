@@ -1,0 +1,344 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Exoplanet API",
+		"description": "The API aims to manage (CRUD) exoplanets and planets, both fictional and real.",
+		"contact": {
+			"name": "José Nícollas Silva de Souza",
+			"email": "josenicollassilvadesouza@gmail.com"
+		},
+		"version": "1.0.0",
+		"license": {
+			"name": "MIT",
+			"url": "https://opensource.org/license/mit"
+		}
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3000/api/v1/exoplanets"
+		}
+	],
+	"paths": {
+		"/": {
+			"get": {
+				"summary": "List all exoplanets",
+				"description": "This route will be responsible for showing all the exoplanets.",
+				"responses": {
+					"200": {
+						"description": "List of exoplanets that have been successfully returned."
+					}
+				}
+			},
+			"post": {
+				"summary": "Create an exoplanet",
+				"description": "This route will be responsible for creating a new exoplanet/planet.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"required": ["name", "description", "tag"],
+								"properties": {
+									"name": {
+										"type": "string",
+										"example": "Khoros (Ben 10)"
+									},
+									"description": {
+										"type": "string",
+										"example": "The exoplanet home of Four Arms (Tetramand) from the Ben 10 franchise."
+									},
+									"tag": {
+										"allOf": [
+											{
+												"$ref": "#/components/schemas/TagExoplanet"
+											}
+										]
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Exoplanet successfully created."
+					}
+				}
+			}
+		},
+
+		"/count": {
+			"get": {
+				"summary": "Returns the number of exoplanets",
+				"description": "This route will be responsible for showing the total number of exoplanets.",
+				"responses": {
+					"200": {
+						"description": "Total number of exoplanets successfully demonstrated."
+					}
+				}
+			}
+		},
+
+		"/download/json": {
+			"get": {
+				"summary": "Download all exoplanets in JSON format",
+				"description": "This route will be responsible for downloading the complete list of exoplanets in JSON format.",
+				"responses": {
+					"200": {
+						"description": "List of exoplanets downloaded in JSON format successfully."
+					}
+				}
+			}
+		},
+		"/download/pdf": {
+			"get": {
+				"summary": "Download all exoplanets in PDF format",
+				"description": "This route will be responsible for downloading the complete list of exoplanets in PDF format.",
+				"responses": {
+					"200": {
+						"description": "List of exoplanets downloaded in PDF format successfully."
+					}
+				}
+			}
+		},
+
+		"/{id}": {
+			"get": {
+				"summary": "Return an exoplanet",
+				"description": "This route will be responsible for revealing an exoplanet.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"required": ["id"],
+								"properties": {
+									"id": {
+										"type": "integer",
+										"example": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Exoplanet that was successfully returned."
+					}
+				}
+			},
+			"put": {
+				"summary": "Completely update an exoplanet",
+				"description": "This route completely updates an exoplanet.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"required": ["id"],
+								"properties": {
+									"id": {
+										"type": "integer",
+										"example": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Exoplanet updated completely successfully."
+					}
+				}
+			},
+			"patch": {
+				"summary": "Partially update an exoplanet",
+				"description": "This route partially updates an exoplanet.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"required": ["id"],
+								"properties": {
+									"id": {
+										"type": "integer",
+										"example": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Exoplanet has been partially updated successfully."
+					}
+				}
+			},
+			"delete": {
+				"summary": "Delete an exoplanet",
+				"description": "This route is responsible for deleting an exoplanet.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"required": ["id"],
+								"properties": {
+									"id": {
+										"type": "integer",
+										"example": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "Exoplanet successfully deleted."
+					}
+				}
+			}
+		},
+		"/{id}/download/json": {
+			"get": {
+				"summary": "Download an exoplanet in JSON format",
+				"description": "This route will be responsible for downloading the complete data of a single exoplanet in JSON format.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"required": ["id"],
+								"properties": {
+									"id": {
+										"type": "integer",
+										"example": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Exoplanet downloaded successfully in JSON format."
+					}
+				}
+			}
+		},
+		"/{id}/download/pdf": {
+			"get": {
+				"summary": "Download an exoplanet in PDF format",
+				"description": "This route will be responsible for downloading the complete data of a single exoplanet in PDF format.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"required": ["id"],
+								"properties": {
+									"id": {
+										"type": "integer",
+										"example": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Exoplanet downloaded successfully in PDF format."
+					}
+				}
+			}
+		},
+		"/{id}/image": {
+			"post": {
+				"summary": "Image Upload",
+				"description": "This route will be responsible for sending an image of the exoplanet.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"required": ["exoplanet"],
+								"properties": {
+									"exoplanet": {
+										"type": "string",
+										"format": "binary"
+									}
+								}
+							},
+							"encoding": {
+								"exoplanet": {
+									"contentType": "image/png, image/jpeg, image/jpg, image/webp"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Image sent successfully."
+					}
+				}
+			}
+		},
+		"/{id}/model": {
+			"post": {
+				"summary": "Model 3D Upload",
+				"description": "This route will be responsible for sending an image of the exoplanet..",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"required": ["exoplanet"],
+								"properties": {
+									"exoplanet": {
+										"type": "string",
+										"format": "binary"
+									}
+								}
+							},
+							"encoding": {
+								"exoplanet": {
+									"contentType": "model/gltf+json, model/gltf-binary, application/octet-stream, application/json"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Model 3D sent successfully."
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"TagExoplanet": {
+				"type": "string",
+				"enum": ["Gas Giant", "Neptunian", "Super-Earth", "Terrestrial"],
+				"description": "Main types of exoplanet"
+			}
+		}
+	}
+}
