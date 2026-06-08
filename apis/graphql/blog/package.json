@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "src/server.ts",
 	"scripts": {
-		"dev": "npx tsx --watch src/server.ts"
+		"dev": "npx tsx --watch src/server.ts",
+		"test:load": "npx artillery run src/test/load/blog.yml",
+		"test:load:report": "npx artillery run --output src/test/load/report.json src/test/load/blog.yml"
 	},
 	"keywords": [
 		"GraphQL",
@@ -37,6 +39,7 @@
 		"@types/jsonwebtoken": "^9.0.10",
 		"@types/morgan": "^1.9.10",
 		"@types/node": "^25.9.2",
+		"artillery": "^2.0.32",
 		"prettier": "^3.8.3",
 		"tsx": "^4.22.4",
 		"typescript": "^6.0.3"
