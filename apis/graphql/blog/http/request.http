@@ -9,3 +9,30 @@ GET http://localhost:4000/version/
 
 ### Version
 GET http://localhost:4000/version/
+
+### GraphiQL
+GET http://localhost:4000/graphiql
+
+### GraphQL List all users by username
+POST http://localhost:4000/graphql
+Content-Type: application/json
+
+{
+	"query": "query { users { username } }"
+}
+
+### GraphQL List all users by diplayName
+POST http://localhost:4000/graphql
+Content-Type: application/json
+
+{
+	"query": "query { users { displayName } }"
+}
+
+### GraphQL List all users and their attributes
+POST http://localhost:4000/graphql
+Content-Type: application/json
+
+{
+	"query": "query { users { id username email displayName createdAt updatedAt } }"
+}
