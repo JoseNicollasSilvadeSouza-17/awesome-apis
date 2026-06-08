@@ -1,0 +1,11 @@
+### Welcome
+GET http://localhost:4000/
+
+### Healthcheck
+GET http://localhost:4000/health/
+
+### Version
+GET http://localhost:4000/version/
+
+### Version
+GET http://localhost:4000/version/
