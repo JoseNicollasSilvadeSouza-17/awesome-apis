@@ -1,0 +1,39 @@
+config:
+  target: "http://localhost:4000"
+  phases:
+    - duration: 30
+      arrivalRate: 5
+      name: Warm up
+
+    - duration: 60
+      arrivalRate: 5
+      rampTo: 50
+      name: Ramp up load
+
+scenarios:
+  - name: "Search Users"
+    flow:
+      - post:
+          url: "/graphql"
+          json:
+            query: |
+              query {
+                users {
+                  id
+                  username
+                }
+              }
+              
+      - think: 1
+
+      - post:
+          url: "/graphql"
+          json:
+            query: |
+              mutation {
+                createPost(
+                  title: "Zé Dog"
+                  body: "Cupcake ipsum dolor sit amet gingerbread. Halvah pie biscuit biscuit cake bear claw. Pastry powder topping macaroon chocolate bar jelly beans pudding. Gingerbread chocolate cake halvah ice cream topping gummi bears gummies ice cream. Cotton candy liquorice I love jelly beans gummies chocolate. Jujubes tart I love dragée cake caramels donut. Apple pie cake I love jelly beans tootsie roll shortbread jelly beans. Chocolate cake biscuit tootsie roll topping toffee macaroon lemon drops marzipan. Sesame snaps marshmallow lemon drops pastry fruitcake. Candy toffee liquorice bonbon sesame snaps. Shortbread I love tart I love I love. Biscuit chocolate cake soufflé halvah danish cupcake I love. Powder sesame snaps dessert powder liquorice lollipop cake. Jelly beans gummies topping sugar plum tootsie roll dragée gummies cake. Apple pie carrot cake candy canes fruitcake gingerbread jelly-o sweet roll marzipan. Shortbread I love donut lemon drops donut icing halvah. Marshmallow topping icing pudding cupcake caramels liquorice cake. Gummi bears fruitcake dessert I love icing sweet roll pie brownie. I love oat cake biscuit I love sweet roll. Tootsie roll cake powder sugar plum wafer lemon drops cheesecake dragée icing. Jelly beans jujubes powder cotton candy cheesecake cookie. Pie I love ice cream jelly-o wafer tiramisu."
+                  telephone: "87999894887"
+                )
+              }
