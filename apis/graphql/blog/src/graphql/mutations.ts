@@ -2,6 +2,8 @@ import { GraphQLString } from "graphql";
 import { userSchema } from "../models/User.js";
 import createJWTToken from "../utils/auth.js";
 import { GraphQLEmailAddress, GraphQLPhoneNumber } from "graphql-scalars";
+import { postSchema } from "../models/Post.js";
+import { PostGraphQLType } from "../types/PostTypes.js";
 
 const register = {
 	type: GraphQLString,
@@ -35,6 +37,7 @@ const register = {
 
 const login = {
 	type: GraphQLString,
+	description: "Login a user and returns a token",
 	args: {
 		email: { type: GraphQLEmailAddress },
 		password: { type: GraphQLString },
@@ -60,7 +63,7 @@ const login = {
 };
 
 const createPost = {
-	type: GraphQLString,
+	type: PostGraphQLType,
 	description: "Create a new post",
 	args: {
 		title: { type: GraphQLString },
@@ -68,9 +71,16 @@ const createPost = {
 		telephone: { type: GraphQLPhoneNumber },
 	},
 	async resolve(_: unknown, args: Record<string, any>) {
-		console.log(args);
+		const { title, body, telephone } = args;
 
-		return "New post created";
+		const post = new postSchema({
+			authorId: "text:id:test:load",
+			title,
+			body,
+			telephone,
+		});
+
+		return post;
 	},
 };
 

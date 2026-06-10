@@ -10,6 +10,7 @@ import cors from "cors";
 import { ruruHTML } from "ruru/server";
 import graphqlHandler from "./graphql/schema.js";
 import { ZodError } from "zod";
+import authenticateJwt from "./middlewares/authenticateJwt.js";
 
 const app: Application = express();
 
@@ -25,7 +26,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.all("/graphql", (req: Request, res: Response, next: NextFunction) => {
+app.all("/graphql", authenticateJwt, (req: Request, res: Response, next: NextFunction) => {
 	graphqlHandler(req, res, next);
 });
 
