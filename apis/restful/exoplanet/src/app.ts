@@ -11,6 +11,7 @@ import router from "./routes/exoplanet.routes.js";
 import promMetrics from "./utils/metrics.js";
 import * as swaggerUi from "swagger-ui-express"; "swagger-ui-express";
 import swaggerDocs from "./docs/swagger.json" with { type: "json" };
+import redis from "./utils/redis.js";
 
 const app: Application = express();
 
@@ -22,12 +23,19 @@ app.use(express.json());
 
 app.use("/api/v1/exoplanets", router);
 
-app.get("/", (req: Request, res: Response) => {
-  const responseData = {
+app.get("/", async (req: Request, res: Response) => {
+  const reply = await redis.get("welcome");
+
+	if (reply) return res.json(reply);
+	
+	const responseData = {
     message: "Welcome to the Exoplanet API!",
     timestamp: new Date().toISOString(),
     uptime: process.uptime()
   };
+
+	const saveResult: string | null = await redis.set("welcome", JSON.stringify(responseData));
+	console.log(saveResult);
 
   return res.status(200).json(responseData);
 });
