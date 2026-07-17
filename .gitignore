@@ -1,6 +1,11 @@
 node_modules/
-dist/
 .env
+
+# Build
+dist/
 
 # Artillery test
 report.json
+
+# Logger
+log/
