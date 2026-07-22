@@ -1,0 +1,27 @@
+enum SpecieName {
+	// Real
+	SPINOSAURUS_AEGYPTIACUS @map("Spinosaurus aegyptiacus")
+	SPINOSAURUS_MIRABILIS @map("Spinosaurus mirabilis")
+	BARYONYX_WALKERI @map("Baryonyx walkeri")
+	IRRITATOR_CHALLENGERI @map("Irritator challengeri")
+	CRISTATUSAURUS_LAPPARENTI @map("Cristatusaurus lapparenti")
+	OXALAIA_QUILOMBENSIS @map("Oxalaia quilombensis")
+	ICHTHYOVENATOR_LAOSENSIS @map("Ichthyovenator laosensis")
+	RIPAROVENATOR_MILNERAE @map("Riparovenator milnerae")
+	CERATOSUCHOPS_INFERODIOS @map("Ceratosuchops inferodios")
+	// Debatable
+	SPINOSAURUS_MAROCCANUS @map("Spinosaurus maroccanus")
+	SIGILMASSASAURUS_BREVICOLLIS @map("Sigilmassasaurus brevicollis")
+	CAMARILLASAURUS_CIRUGEDAE @map("Camarillasaurus cirugedae")
+	// Amalgam
+	SPINOSAURUS_JP3 @map("Spinosaurus JP3")
+	SPINOSAURUS_GEN_2 @map("Spinosaurus Gen 2")
+	SPINOSAURUS_REBIRTH @map("Spinosaurus Rebirth")
+	SPINORAPTOR @map("Spinoraptor")
+	SPINONYX @map("Spinonyx")
+	SPINOTAHRAPTOR @map("Spinotahraptor")
+	SPINOTASUCHUS @map("Spinotasuchus")
+	// Extra
+	SPINOFAARUS_VULGARIS @map("Spinofaarus vulgaris")
+	EXTRA @map("Extra")
+}
