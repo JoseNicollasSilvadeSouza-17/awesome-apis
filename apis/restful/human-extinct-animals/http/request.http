@@ -1,0 +1,11 @@
+### Welcome
+GET http://localhost:3000/
+
+### Healthcheck
+GET http://localhost:3000/health/
+
+### Version
+GET http://localhost:3000/version/
+
+### List all Human Extintic Animals
+GET http://localhost:3000/api/v1/human-extinctic-animals/

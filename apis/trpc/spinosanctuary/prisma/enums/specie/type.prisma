@@ -1,0 +1,6 @@
+enum SpecieType {
+	REAL
+	DEBATABLE
+	AMALGAM
+	EXTRA
+}

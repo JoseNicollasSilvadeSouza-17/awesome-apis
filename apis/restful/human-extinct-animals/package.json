@@ -1,0 +1,50 @@
+{
+	"name": "human-extinct-animals",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/server.ts",
+	"scripts": {
+		"dev": "npx tsx --watch src/server.ts"
+	},
+	"keywords": [
+		"Human",
+		"Extinct Animals",
+		"History",
+		"API"
+	],
+	"author": {
+		"name": "José Nícollas Silva de Souza",
+		"email": "josenicollassilvadesouza@gmail.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"dependencies": {
+		"@dotenvx/dotenvx": "^1.73.1",
+		"compression": "^1.8.1",
+		"cors": "^2.8.6",
+		"express": "^5.2.1",
+		"helmet": "^8.2.0",
+		"lowdb": "^7.0.1",
+		"morgan": "^1.11.0",
+		"prom-client": "^15.1.3",
+		"uuid": "^14.0.0",
+		"winston": "^3.19.0",
+		"zod": "^4.4.3"
+	},
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@eslint/json": "^2.0.0",
+		"@eslint/markdown": "^8.0.2",
+		"@types/compression": "^1.8.1",
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.6",
+		"@types/morgan": "^1.9.10",
+		"@types/node": "^25.9.3",
+		"eslint": "^10.5.0",
+		"globals": "^17.6.0",
+		"prettier": "^3.8.4",
+		"tsx": "^4.22.4",
+		"typescript": "^6.0.3",
+		"typescript-eslint": "^8.61.1"
+	}
+}

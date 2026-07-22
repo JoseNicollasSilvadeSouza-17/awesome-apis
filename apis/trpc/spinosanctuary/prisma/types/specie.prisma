@@ -1,0 +1,4 @@
+type SpecieObject {
+	type SpecieType
+	name SpecieName
+}

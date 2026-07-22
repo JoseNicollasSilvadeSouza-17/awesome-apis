@@ -1,0 +1,2 @@
+### Show Spino 0
+GET http://localhost:3000/trpc/spino
